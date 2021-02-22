@@ -1,0 +1,149 @@
+table{
+    overflow-x: auto;
+    overflow-y: auto;
+}
+table th {
+    z-index: 1;
+    position: sticky;
+    background-color: #f4f4f4;
+    top: 0;
+    left: 0;    
+    font-weight: bold !important;
+    white-space: nowrap;
+    text-align: center;
+    border: 1px solid #dee2e6;    
+    border-left-width: 0;
+}
+
+table th:first-child{
+    border-left-width: 1px;
+}
+     table th .cell {
+        padding: 15px 16px !important;
+    }
+
+    
+
+ table td {
+    padding: 15px 16px !important;
+    text-align: left;
+    white-space: nowrap;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+
+    border: 1px solid #dee2e6;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+ table tr:last-child td {
+    border-bottom-width: 1px;
+}
+ table tr td:first-child {
+    border-left-width: 1px;
+}
+
+
+
+ 
+ tbody tr:nth-child(2n+1) {
+    background-color: #f4f4f4;
+}
+
+ tbody tr:hover {
+    background-color: #d1f1ff;
+    cursor: pointer;
+}
+
+ table td span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+div.tableContainer {
+    clear: both;
+    border: 1px solid #963;
+    height: 285px;
+    overflow: auto;
+    width: 900px;
+}
+
+
+
+
+html > body div.tableContainer {
+    overflow: hidden;
+    width: 900px;
+}
+
+
+
+
+    div.tableContainer table {
+        float: left;
+        border-spacing: 0;
+    }
+
+        div.tableContainer table tr {
+            display: table;
+            width: 100%;
+        }
+
+
+
+
+thead.fixedHeader tr {
+    position: relative;
+}
+
+
+
+ thead.fixedHeader th {
+    border: 1px solid #ccc;
+    font-weight: normal;
+    text-align: left;
+}
+
+ body  thead.fixedHeader {
+    display: table;
+    overflow: auto;
+    width: 100%;
+}
+
+ body  tbody.scrollContent {
+    display: block;
+    height: 262px;
+    overflow: auto;
+    width: 100%;
+}
+
+
+  
+
+ tbody.scrollContent td,
+tbody.scrollContent tr.normalRow td {
+    background: #fff;
+    border-bottom: none;
+    border-left: none;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ddd;
+}
+
+ td div {
+    max-width: 100%;
+    white-space: nowrap;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+.row-selected {
+    background-color: rgba(150, 109, 48, 0.767) !important;
+}

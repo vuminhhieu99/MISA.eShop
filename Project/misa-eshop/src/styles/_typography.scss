@@ -1,0 +1,61 @@
+
+
+@font-face {
+    font-family: 'GoogleSans-Regular';
+    src: url('~@/assets/font/GoogleSans-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'GoogleSans-Medium';
+  src: url('~@/assets/font/GoogleSans-Medium.otf') format('opentype');
+}
+@font-face {
+    font-family: 'GoogleSans-Bold';
+   src: url('~@/assets/font/GoogleSans-Bold.otf') format('opentype');
+}
+
+.h1{
+    font-size: 18px;
+    font-family: GoogleSans-Regular;
+}
+
+.h2{
+    font-size: 16px;
+    font-family: GoogleSans-Medium;
+}
+
+.h3{
+    font-size: 15px;
+    font-family: GoogleSans-Medium;
+}
+
+.h4{
+    font-size: 13px;
+    font-family: GoogleSans-Bold;
+}
+
+.paragraph{
+    font-size: 13px;
+    font-family: GoogleSans-Regular;    
+}
+
+.note{
+    font-size: 11px;
+    font-family: GoogleSans-Regular;    
+}
+
+.text-primary{
+    color: #212121;
+}
+
+.text-secondary{
+    color: #757575;
+}
+
+.text-disable{
+    color: #8f8f8f;
+}
+
+.text-hint{
+    color: #9e9e9e;
+}

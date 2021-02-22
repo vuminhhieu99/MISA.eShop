@@ -1,0 +1,42 @@
+.h-active {
+    background-color: #00557b;
+    
+}
+.h-primary {
+    background-color: #026b97;
+}
+
+.h-primary-1 {
+    background-color: #2ca434;
+}
+
+.h-primary-2 {
+    background-color: #eb7728;
+}
+
+.h-hover:hover {
+    background-color: #0088c1;    
+}
+.h-hover-1:hover {
+    background-color: #3ce347;    
+}
+.h-hover-2:hover {
+    background-color: #eb7728;
+    color: #ffffff;
+}
+.h-selecled:focus-within {
+    background-color: #00557b;
+   
+}
+.h-color-active{
+    color: #00557b;
+}
+
+.h-color-selecd-row{
+    background-color: #c3ecff !important;
+}
+
+.h-color-validate{
+    color: red;
+}
+

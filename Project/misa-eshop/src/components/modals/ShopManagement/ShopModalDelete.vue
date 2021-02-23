@@ -57,8 +57,10 @@ export default {
     Confirm: async function () {
       var listReponse=[];
       // var totalId = this.listId.length;
-      // var count =0;     
-      for (var item in this.listId) {
+      // var count =0;    
+      for (var i = 0; i < this.listId.length; i++) {   
+        var item = this.listId[i];  
+        console.log(item);
         await axios
           .delete("https://localhost:44336/api/Shop/" + item)
           .then(function (res) {

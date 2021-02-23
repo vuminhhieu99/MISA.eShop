@@ -57,7 +57,7 @@ namespace Misa.Bussiness.Version1
         {
             var list = await _shopData.GetData(pageRequest);
             var listPage = list.Skip(pageRequest.PageSize * (pageRequest.PageIndex - 1))
-  .Take(pageRequest.PageSize);
+  .Take(pageRequest.PageSize).ToList();
             var ListPacket = new PageResult<ShopResult>()
             {
                 Items = listPage,

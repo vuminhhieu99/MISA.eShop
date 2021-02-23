@@ -326,9 +326,10 @@ export default {
       
       if (value != "" && value != null && value != undefined) {
         var phone = /\b(\d{1,3})(\d*)\b/;
-        var match = phone.exec(value);        
+        var match = phone.exec(value);  
+        return match.splice(1).join(' ');      
       }
-      return match.splice(1).join(' ');
+      return "";
     }    
   },
   async created() {

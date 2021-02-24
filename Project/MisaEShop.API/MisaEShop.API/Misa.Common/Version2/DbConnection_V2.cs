@@ -1,10 +1,10 @@
 ﻿using Dapper;
-using Misa.Common.Requests;
-using Misa.Data.Interfaces;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using Misa.Common.Requests;
+using Misa.Data.Interfaces;
 using System.Linq;
 
 using System.Threading.Tasks;
@@ -60,7 +60,7 @@ namespace Misa.Data.Version1
                 return await dbConnection.QueryAsync<T2>(queryString);
             }
             if (parameters != null)
-            {
+            { 
                 return await dbConnection.QueryAsync<T2>(commandText, param: parameters, commandType: commandType);
             }
             return await dbConnection.QueryAsync<T2>(commandText, commandType: commandType);
@@ -185,9 +185,18 @@ namespace Misa.Data.Version1
             dbConnection.Dispose();
         }
 
-        public Task<T2> GetById<T2>(object id)
+        /// <summary>
+        /// Lấy đối tượng theo id chỉ định đầu ra cụ thể
+        /// </summary>
+        /// <param name="id">Id của đối tượng</param>
+        /// <returns>Một đối tượng</returns>
+        /// create: 22/2/2021
+        public async Task<T2> GetById<T2>(object id)
         {
-            throw new NotImplementedException();
+            string className = typeof(T2).Name;
+            var queryString = $"SELECT * FROM {className} WHERE {className}Id ='{id.ToString()}'";
+            var entites = await dbConnection.QueryAsync<T2>(queryString);
+            return entites.FirstOrDefault();
         }
     }
 }

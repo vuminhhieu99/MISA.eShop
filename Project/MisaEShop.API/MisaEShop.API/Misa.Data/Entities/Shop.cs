@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Misa.Data.Entities
 {
@@ -10,7 +11,8 @@ namespace Misa.Data.Entities
         
         public Shop()
         {
-            ShopId = Guid.NewGuid().ToString();
+            ShopId = Guid.NewGuid().ToString().Replace("-", String.Empty);
+           
         }
         /// <summary>
         /// Mã cửa hàng

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Common\\Misa.Data.csproj": {}
+    "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Common\\Misa.Data.csproj": {}
   },
   "projects": {
-    "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Common\\Misa.Data.csproj": {
+    "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Common\\Misa.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Common\\Misa.Data.csproj",
+        "projectUniqueName": "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Common\\Misa.Data.csproj",
         "projectName": "Misa.Data",
-        "projectPath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Common\\Misa.Data.csproj",
-        "packagesPath": "C:\\Users\\BlueMan\\.nuget\\packages\\",
-        "outputPath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Common\\obj\\",
+        "projectPath": "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Common\\Misa.Data.csproj",
+        "packagesPath": "C:\\Users\\vmhieu\\.nuget\\packages\\",
+        "outputPath": "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\BlueMan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vmhieu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj": {
-                "projectPath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj"
+              "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj": {
+                "projectPath": "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj"
               }
             }
           }
@@ -72,21 +72,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj": {
+    "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
+        "projectUniqueName": "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
         "projectName": "Misa.Common",
-        "projectPath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
-        "packagesPath": "C:\\Users\\BlueMan\\.nuget\\packages\\",
-        "outputPath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\obj\\",
+        "projectPath": "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
+        "packagesPath": "C:\\Users\\vmhieu\\.nuget\\packages\\",
+        "outputPath": "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\BlueMan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vmhieu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -126,7 +126,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

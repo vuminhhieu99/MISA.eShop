@@ -174,7 +174,7 @@ namespace Misa.Data.Version1
             string className = typeof(T).Name;
             var query = $"Proc_Delete{className}";
             var parameters = new DynamicParameters();
-            parameters.Add($"@{className}Id1", id);
+            parameters.Add($"@{className}Id", id);
             return await dbConnection.ExecuteAsync(query, parameters, commandType: CommandType.StoredProcedure);
 
 

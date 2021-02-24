@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IPoDTAUX2qaFKdhccgYJx1L+mP0CF/aZtAurD4IE6r7f4+ribIRzhHuQmC/oFUrDyPN5i5pKscBPRvQ+cvjWUA==",
+  "dgSpecHash": "0cAxEUirwURV6HEGJ41qVGQD10/AQex9yFkN1oQZBCeoFbOwCBbXpEzX9Vy1WOh4xmOXI6mhRcyg57TUhhw7SQ==",
   "success": true,
-  "projectFilePath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
+  "projectFilePath": "E:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

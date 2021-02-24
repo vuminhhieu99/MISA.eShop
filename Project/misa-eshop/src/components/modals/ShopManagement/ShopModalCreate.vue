@@ -19,6 +19,7 @@
             v-bind:class="{ 'is-valid-fail': !validate.shopCode }"
             tabindex="1"
             v-model="shop.shopCode"
+            @mouseover="val_ShopCode()"
           />
         </div>
 
@@ -32,6 +33,7 @@
             v-bind:class="{ 'is-valid-fail': !validate.shopName }"
             tabindex="2"
             v-model="shop.shopName"
+            @mouseover="val_ShopName()"
           />
         </div>
         <div class="form-group h-container-center">
@@ -44,6 +46,7 @@
             v-bind:class="{ 'is-valid-fail': !validate.address }"
             tabindex="3"
             v-model="shop.address"
+            @mouseover="val_Address()"
           />
         </div>
         <div class="h-container">
@@ -214,7 +217,7 @@ export default {
         statusId: null,
         street: "",
         createDate: null,
-        createUserId: null,
+        createUserId: "149fb958744f70c67709bf1378b8dc91",
       },
       selectedCountry: 0,
       optionCountry: [{ text: "--quốc gia--", value: 0 }],
@@ -328,9 +331,31 @@ export default {
       this.$refs.ModalValidata_ref.hide();
     },
 
+    checkValidate: function () {
+      var check = true;
+
+      if (!this.validate.shopCode){
+          this.val_ShopCode(); // kiểm tra lại và show diglog valide;
+           check = false;
+      }
+      if (!this.validate.shopName){
+         this.val_ShopName(); // kiểm tra lại và show diglog valide;
+        check = false;
+      } 
+      if (!this.validate.address){
+         this.val_Address(); // kiểm tra lại và show diglog valide;
+         check = false;
+      } 
+      return check;
+    },
+
     // thực hiện chức năng thêm mới bản ghi
     // params: left - trạng thái có ở lại sau khi thêm mới thành công hay không
     Confirm: async function (leave) {
+      if (!this.checkValidate()) {
+        console.log(this.$el.querySelector('input[class="is-valid-fail"]'));
+        return;
+      }
       var confirm;
       // lấy ra ngày giờ hiện tại
       var timeZoneffset = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
@@ -343,16 +368,15 @@ export default {
         .then(function (res) {
           console.log("success: " + res.data);
           confirm = res.data;
-          
         })
         .catch(function (err) {
           console.log("false: " + err);
           confirm = err.response.data;
-        });     
+        });
       this.$emit("created", confirm, leave);
     },
     // reset dữ liệu trong form
-    resetForm: function() {
+    resetForm: function () {
       this.shop.shopCode = "";
       this.shop.shopName = "";
       this.shop.address = "";
@@ -365,41 +389,55 @@ export default {
       this.selectedCity = 0;
       this.selectedDistrict = 0;
     },
-  },
 
-  watch: {
-    "shop.shopCode": function () { 
+    /// validate
+    // - ShopCode
+    val_ShopCode: function () {
       this.validateBag = vldShop.shopCode(this.shop.shopCode);
-      if(this.validateBag.success == true){
+      if (this.validateBag.success == true) {
         this.hideValidate();
         this.validate.shopCode = true;
-      }
-      else{
+      } else {
         this.showValidate();
         this.validate.shopCode = false;
       }
     },
-    "shop.shopName": function () {
-     this.validateBag = vldShop.shopName(this.shop.shopName);
-      if(this.validateBag.success == true){
+
+     // - ShopName
+    val_ShopName: function () {
+      this.validateBag = vldShop.shopName(this.shop.shopName);
+      if (this.validateBag.success == true) {
         this.hideValidate();
         this.validate.shopName = true;
-      }
-      else{
+      } else {
         this.showValidate();
         this.validate.shopName = false;
       }
     },
-    "shop.address": function () {
+
+    // - Address
+     val_Address: function () {
       this.validateBag = vldShop.shopAddress(this.shop.address);
-      if(this.validateBag.success == true){
+      if (this.validateBag.success == true) {
         this.hideValidate();
         this.validate.address = true;
-      }
-      else{
+      } else {
         this.showValidate();
         this.validate.address = false;
       }
+    },
+    ///-------------------------
+  },
+
+  watch: {
+    "shop.shopCode": function () {
+      this.val_ShopCode();
+    },
+    "shop.shopName": function () {
+      this.val_ShopName();
+    },
+    "shop.address": function () {
+      this.val_Address();
     },
     selectedCountry: async function () {
       await this.getCityData();

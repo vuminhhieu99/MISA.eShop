@@ -5,7 +5,7 @@
         <i class="h-icon h-icon-add"></i>
         <p>Thêm mới</p>
       </button>
-      <button class="h-btn h-btn-1">
+      <button class="h-btn h-btn-1 h-btn-1-disable">
         <i class="h-icon h-icon-copy"></i>
         <p>Nhân bản</p>
       </button>
@@ -17,7 +17,8 @@
         <i class="h-icon h-icon-delete"></i>
         <p>Xóa</p>
       </button>
-      <button class="h-btn h-btn-1">
+      <button class="h-btn h-btn-1"
+      @click="reLoadData()">
         <i class="h-icon h-icon-refresh"></i>
         <p>Nạp</p>
       </button>
@@ -36,7 +37,7 @@
         <thead class="has-gutter">
           <tr class="el-table__row">
             <th colspan="1" rowspan="1" fieldName="shopCode">
-              <div class="cell">Mã cửa hàng{{search.shopCode}}</div>
+              <div class="cell">Mã cửa hàng</div>
               <div class="h-container-row">
                 <button class="h-btn button-all">*</button>
                 <input class="form-control" v-model="search.shopCode" />
@@ -67,11 +68,14 @@
               <div class="cell">trạng thái</div>
               <div class="h-container-row">
                 <select name="statusName" class="form-control" v-model="search.statusId" >
-                  <option value="0">--Chọn trạng thái--</option>
-                  <option value="1">Đang hoạt động</option>
-                  <option value="2">Ngừng hoạt động</option>
-                  <option value="3">Đang thi công</option>
-                </select>
+                   <option
+                    v-for="option in optionStatus"
+                    :key="option.value"
+                    v-bind:value="option.value"
+                  >
+                    {{ option.text }}
+                  </option> 
+                  </select >              
               </div>
             </th>
           </tr>
@@ -154,9 +158,9 @@ export default {
         shopName: "",
         address: "",
         phone: "",   
-        statusId: null,     
-       
-      }
+        statusId: 0, 
+      },
+      optionStatus: [{ text: "--trạng thái--", value: 0 }]
     };
   },
   components: {
@@ -215,12 +219,27 @@ export default {
       }
       console.log(this.selected);
     },
+
+    //lấy danh sách trạng thái cửa hàng
+    getStatusData: async function () {
+      const response = await axios.get(
+        "https://localhost:44336/api/StatusShop/BaseAll"
+      );
+      var optionStatus = [];
+      optionStatus.push({ text: "--trạng thái--", value: 0 });
+      response.data.data.forEach(function (item) {
+        optionStatus.push({
+          text: item.statusName,
+          value: item.statusId,
+        });
+      });
+      this.optionStatus = optionStatus;
+    },
     
     // lấy data
     getData: async function(pageIndex = 1, pageSize = 10) {
       console.log("getData");
-      this.processing = true;
-      this.resetSelected();
+      this.processing = true;      
       const response = await axios.get("https://localhost:44336/api/Shop", {
         params:{
            pageIndex:  pageIndex,
@@ -239,8 +258,24 @@ export default {
       // console.log(this.shops);
     },
     // xóa hết các dòng được chọn
-    resetSelected: async function() {
+    resetSelected: function() {
       this.selected.length = 0;
+    },
+
+    // xóa hết các tìm kiếm
+    resetSearch: function() {
+       this.search.shopCode = "",
+         this.search.shopName= "",
+         this.search.address= "",
+         this.search.phone= "",   
+         this.search.statusId= 0 
+    },
+    
+    reLoadData:async function(){
+      this.resetSearch();
+      this.resetSelected();
+      await this.getStatusData();
+      await this.getData();
     },
 
     
@@ -309,15 +344,12 @@ export default {
           else{
             strAnnounce = strAnnounce + " Xóa thành công: " + item.id + "\n";
           }
-      });        
-     
-      
-        alert(strAnnounce);
-        await this.getData();
+      });   
+       await this.getData();
         await this.$refs.ShopModalDelete_ref.hide();
-        
-      
-    },
+      alert(strAnnounce);
+      }
+       
   },
 
   filters: {
@@ -333,7 +365,8 @@ export default {
     }    
   },
   async created() {
-      await this.getData();
+    await this.getStatusData();
+      await this.getData();      
     },
 
   watch: {

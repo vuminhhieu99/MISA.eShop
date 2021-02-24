@@ -3,14 +3,15 @@ export  const COORDINATES = {
     shopName: { left: "742px", top: "42px" },
     address: { left: "742px", top: "90px" },
 };
+
+
 export  const TALK_VALIDATE = {
     shopCode_Empty: "Mã cửa hàng không được bỏ trống",
     shopCode_MaxLength: "Mã cửa hàng không quá 30 ký tự",
     shopName_Empty: "Tên cửa hàng không được bỏ trống",
     shopName_MaxLength: "Tên cửa hàng không quá 100 ký tự",
     address_Empty: "Địa chỉ cửa hàng không được bỏ trống",
-    address_MaxLength: "Địa chỉ cửa hàng không được quá 400 ký tự",
-   
+    address_MaxLength: "Địa chỉ cửa hàng không được quá 400 ký tự"   
 };
 
 export var validateBag = {

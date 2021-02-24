@@ -10,3 +10,15 @@ E:\Bài thi MISA eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\obj\Debug
 E:\Bài thi MISA eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\bin\Debug\netcoreapp3.1\Misa.Common.dll
 E:\Bài thi MISA eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\bin\Debug\netcoreapp3.1\Misa.Common.pdb
 E:\Bài thi MISA eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\obj\Debug\netcoreapp3.1\Misa.Data.csproj.CopyComplete
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\bin\Debug\netcoreapp3.1\Misa.Data.deps.json
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\bin\Debug\netcoreapp3.1\Misa.Data.dll
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\bin\Debug\netcoreapp3.1\Misa.Data.pdb
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\bin\Debug\netcoreapp3.1\Misa.Common.dll
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\bin\Debug\netcoreapp3.1\Misa.Common.pdb
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\obj\Debug\netcoreapp3.1\Misa.Data.csprojAssemblyReference.cache
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\obj\Debug\netcoreapp3.1\Misa.Data.AssemblyInfoInputs.cache
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\obj\Debug\netcoreapp3.1\Misa.Data.AssemblyInfo.cs
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\obj\Debug\netcoreapp3.1\Misa.Data.csproj.CoreCompileInputs.cache
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\obj\Debug\netcoreapp3.1\Misa.Data.csproj.CopyComplete
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\obj\Debug\netcoreapp3.1\Misa.Data.dll
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Common\obj\Debug\netcoreapp3.1\Misa.Data.pdb

@@ -48,11 +48,11 @@ export default {
 <style src="./modal.scss" lang="scss" />
 <style scoped>
 .h-success {
-  background-color: seagreen;
+  background-color: #2ca434;
 }
 
 .h-fail {
-  background-color: red;
+  background-color: #eb7728;
 }
 
 .h-confirm {

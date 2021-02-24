@@ -5,7 +5,7 @@
         <i class="h-icon h-icon-add"></i>
         <p>Thêm mới</p>
       </button>
-      <button class="h-btn h-btn-1">
+      <button class="h-btn h-btn-1 h-btn-1-disable">
         <i class="h-icon h-icon-copy"></i>
         <p>Nhân bản</p>
       </button>
@@ -17,7 +17,7 @@
         <i class="h-icon h-icon-delete"></i>
         <p>Xóa</p>
       </button>
-      <button class="h-btn h-btn-1">
+      <button class="h-btn h-btn-1" @click="reLoadData()">
         <i class="h-icon h-icon-refresh"></i>
         <p>Nạp</p>
       </button>
@@ -36,7 +36,7 @@
         <thead class="has-gutter">
           <tr class="el-table__row">
             <th colspan="1" rowspan="1" fieldName="shopCode">
-              <div class="cell">Mã cửa hàng{{search.shopCode}}</div>
+              <div class="cell">Mã cửa hàng</div>
               <div class="h-container-row">
                 <button class="h-btn button-all">*</button>
                 <input class="form-control" v-model="search.shopCode" />
@@ -66,11 +66,18 @@
             <th colspan="1" rowspan="1" fieldName="phoneNumber">
               <div class="cell">trạng thái</div>
               <div class="h-container-row">
-                <select name="statusName" class="form-control" v-model="search.statusId" >
-                  <option value="0">--Chọn trạng thái--</option>
-                  <option value="1">Đang hoạt động</option>
-                  <option value="2">Ngừng hoạt động</option>
-                  <option value="3">Đang thi công</option>
+                <select
+                  name="statusName"
+                  class="form-control"
+                  v-model="search.statusId"
+                >
+                  <option
+                    v-for="option in optionStatus"
+                    :key="option.value"
+                    v-bind:value="option.value"
+                  >
+                    {{ option.text }}
+                  </option>
                 </select>
               </div>
             </th>
@@ -105,20 +112,19 @@
         </tbody>
       </table>
     </section>
-    <ShopModalCreate ref="ShopModalCreate_ref" @created="createCofirm"/>
-    <ShopModalEdit ref="ShopModalEdit_ref" :shopIdEdit="shopIdEdit"  @edited="editCofirm"/>
-    <ShopModalDelete ref="ShopModalDelete_ref"
+    <ShopModalCreate ref="ShopModalCreate_ref" @created="createCofirm" />
+    <ShopModalEdit
+      ref="ShopModalEdit_ref"
+      :shopIdEdit="shopIdEdit"
+      @edited="editCofirm"
+    />
+    <ShopModalDelete
+      ref="ShopModalDelete_ref"
       :listId="selected"
-      @deleted="deletedCofirm" />
-    <ShopModalConfirm
-      ref="ShopModalConfirm_ref"
-      :confirm="confirm"
-      
-    />   
-    <FooterShopManagement   
-       :shopTotal="shopTotal" 
-       @selectPage="getData"
-       />
+      @deleted="deletedCofirm"
+    />
+    <ShopModalConfirm ref="ShopModalConfirm_ref" :confirm="confirm" />
+    <FooterShopManagement :shopTotal="shopTotal" @selectPage="getData" />
   </aside>
 </template>
 
@@ -130,8 +136,8 @@ import ShopModalDelete from "../modals/ShopManagement/ShopModalDelete.vue";
 import ShopModalConfirm from "../modals/ShopManagement/ShopModalConfirm.vue";
 import FooterShopManagement from "../footers/FooterShopManagement.vue";
 const RESOURCE = {
-    ERROR_SELECT_MULTI : "Vui lòng chỉ chọn 1 cửa hàng",
-    ERROR_SELECT_NOT : "Vui lòng chọn cửa hàng",
+  ERROR_SELECT_MULTI: "Vui lòng chỉ chọn 1 cửa hàng",
+  ERROR_SELECT_NOT: "Vui lòng chọn cửa hàng",
 };
 export default {
   props: {
@@ -144,19 +150,19 @@ export default {
       shops: [],
       shopIdEdit: "",
       confirm: {
-          message: "",
-          success: true,
-      },      
+        message: "",
+        success: true,
+      },
       shopTotal: 25,
-      selected: [],      
+      selected: [],
       search: {
         shopCode: "",
         shopName: "",
         address: "",
-        phone: "",   
-        statusId: null,     
-       
-      }
+        phone: "",
+        statusId: 0,
+      },
+      optionStatus: [{ text: "--trạng thái--", value: 0 }],
     };
   },
   components: {
@@ -168,23 +174,23 @@ export default {
   },
   methods: {
     // mở form thêm mới cửa hàng
-    openShopModalCreate: async function() {
-      await this.$refs.ShopModalCreate_ref.show();     
+    openShopModalCreate: async function () {
+      await this.$refs.ShopModalCreate_ref.show();
       //this.$refs.ShopModalConfirm_ref.show();
     },
     // mở form xác nhận xóa cửa hàng
-    openShopModalDelete: async function() {
-       if (this.selected.length < 1) {
+    openShopModalDelete: async function () {
+      if (this.selected.length < 1) {
         alert("vui lòng chọn nhân viên");
         return;
-      }     
+      }
       await this.$refs.ShopModalDelete_ref.show();
     },
 
     // mở form sửa cửa hàng
-    openShopModalEdit: async function() {
-       if (this.selected.length < 1) {
-       this.confirm.message = RESOURCE.ERROR_SELECT_NOT;
+    openShopModalEdit: async function () {
+      if (this.selected.length < 1) {
+        this.confirm.message = RESOURCE.ERROR_SELECT_NOT;
         this.confirm.success = false;
         await this.$refs.ShopModalConfirm_ref.show();
         return;
@@ -200,13 +206,13 @@ export default {
     },
 
     // kiểm tra xem đã nhấn dòng chưa để sửa ui
-    isSelected:function(id) {
+    isSelected: function (id) {
       const index = this.selected.indexOf(id);
       if (index > -1) return true;
       return false;
     },
     // thêm hoặc xóa dòng đã chọn vào list selected
-    selectRow: function(id) {
+    selectRow: function (id) {
       const index = this.selected.indexOf(id);
       if (index > -1) {
         this.selected.splice(index, 1);
@@ -215,146 +221,176 @@ export default {
       }
       console.log(this.selected);
     },
-    
+
+    //lấy danh sách trạng thái cửa hàng
+    getStatusData: async function () {
+      const response = await axios.get(
+        "https://localhost:44336/api/StatusShop/BaseAll"
+      );
+      var optionStatus = [];
+      optionStatus.push({ text: "--trạng thái--", value: 0 });
+      response.data.data.forEach(function (item) {
+        optionStatus.push({
+          text: item.statusName,
+          value: item.statusId,
+        });
+      });
+      this.optionStatus = optionStatus;
+    },
+
     // lấy data
-    getData: async function(pageIndex = 1, pageSize = 10) {
+    getData: async function (pageIndex = 1, pageSize = 10) {
       console.log("getData");
       this.processing = true;
-      this.resetSelected();
       const response = await axios.get("https://localhost:44336/api/Shop", {
-        params:{
-           pageIndex:  pageIndex,
-            pageSize: pageSize,
-            shopCode: this.search.shopCode,
-            shopName: this.search.shopName,
-            address: this.search.address,
-            phone: this.search.phone,   
-            statusId: this.search.statusId,
-        }        
+        params: {
+          pageIndex: pageIndex,
+          pageSize: pageSize,
+          shopCode: this.search.shopCode,
+          shopName: this.search.shopName,
+          address: this.search.address,
+          phone: this.search.phone,
+          statusId: this.search.statusId,
+        },
       });
       this.shops = response.data.data.items;
-      this.shopTotal = response.data.data.totalRecord;     
-      //this.shops = response.data;   
+      this.shopTotal = response.data.data.totalRecord;
+      //this.shops = response.data;
       // this.processing = false;
       // console.log(this.shops);
     },
     // xóa hết các dòng được chọn
-    resetSelected: async function() {
+    resetSelected: function () {
       this.selected.length = 0;
     },
 
-    
+    // xóa hết các tìm kiếm
+    resetSearch: function () {
+      (this.search.shopCode = ""),
+        (this.search.shopName = ""),
+        (this.search.address = ""),
+        (this.search.phone = ""),
+        (this.search.statusId = 0);
+    },
 
-     //phản hồi dữ liệu từ form create nhân viên
-    createCofirm : async function(res, leave){
+    reLoadData: async function () {
+      this.resetSearch();
+      this.resetSelected();
+      await this.getStatusData();
+      await this.getData();
+    },
+
+    //phản hồi dữ liệu từ form create nhân viên
+    createCofirm: async function (res, leave) {
       console.log("set res");
-      if(res.misAeShopCode == 200){
+      if (res.misAeShopCode == 200) {
         this.confirm.message = "Thêm mới thành công";
         this.confirm.success = true;
-        if(leave == true){
+        if (leave == true) {
           await this.getData();
-        }
-        else{
-          await Promise.all([this.$refs.ShopModalCreate_ref.hide(), this.getData()]); 
+        } else {
+          await Promise.all([
+            this.$refs.ShopModalCreate_ref.hide(),
+            this.getData(),
+          ]);
         }
         await this.$refs.ShopModalCreate_ref.resetForm();
-      }
-      else if(res.misAeShopCode == 500){
-        this.confirm.message = res.error[0].userMsg ;
-        this.confirm.message += "\n" +res.error[0].devMsg;
-        this.confirm.success = false;        
-      }
-      else{
-        var err = "";
-        res.error.forEach(function(item){
-            err += item.userMsg.toString() +"\n";
-        });
-        this.confirm.message = "Thêm mới thất bại\n" +err;
+      } else if (res.misAeShopCode == 500) {
+        this.confirm.message = res.error[0].userMsg;
+        this.confirm.message += "\n" + res.error[0].devMsg;
         this.confirm.success = false;
-         
+      } else {
+        var err = "";
+        res.error.forEach(function (item) {
+          err += item.userMsg.toString() + "\n";
+        });
+        this.confirm.message = "Thêm mới thất bại\n" + err;
+        this.confirm.success = false;
       }
       await this.$refs.ShopModalConfirm_ref.show();
     },
-     editCofirm: async function (res) {
-       console.log("confirm update");
+    editCofirm: async function (res) {
+      console.log("confirm update");
       if (res.misAeShopCode == 200) {
         this.confirm.message = "Cập nhật thành công";
-        this.confirm.success = true;        
-        await Promise.all([this.$refs.ShopModalEdit_ref.hide(),this.getData()]);       
-      } 
-      else if(res.misAeShopCode == 500){
-        this.confirm.message = res.error[0].userMsg ;
-       this.confirm.message += "\n" +res.error[0].devMsg;
-        this.confirm.success  = false;        
-      }
-      else{
+        this.confirm.success = true;
+        await Promise.all([
+          this.$refs.ShopModalEdit_ref.hide(),
+          this.getData(),
+        ]);
+      } else if (res.misAeShopCode == 500) {
+        this.confirm.message = res.error[0].userMsg;
+        this.confirm.message += "\n" + res.error[0].devMsg;
+        this.confirm.success = false;
+      } else {
         var err = "";
-        res.error.forEach(function(item){
-            err += item.userMsg.toString() +"\n";
+        res.error.forEach(function (item) {
+          err += item.userMsg.toString() + "\n";
         });
-        this.confirm.message = "Cập nhật thất bại\n" +err;
-         this.confirm.success  = false;        
+        this.confirm.message = "Cập nhật thất bại\n" + err;
+        this.confirm.success = false;
       }
-      await this.$refs.ShopModalConfirm_ref.show()
-      
+      await this.$refs.ShopModalConfirm_ref.show();
     },
     deletedCofirm: async function (res) {
       console.log("confirm");
-         
-      var strAnnounce = "";     
-      res.forEach(function(item){
-          if(item.status == false){
-            strAnnounce = strAnnounce + " xóa thất bại: " + item.id +"\n";
-          }
-          else{
-            strAnnounce = strAnnounce + " Xóa thành công: " + item.id + "\n";
-          }
-      });        
-     
-      
-        alert(strAnnounce);
-        await this.getData();
-        await this.$refs.ShopModalDelete_ref.hide();
-        
-      
+
+      var strAnnounce = "";
+      res.forEach(function (item) {
+        if (item.status == false) {
+          strAnnounce = strAnnounce + " xóa thất bại: " + item.id + "\n";
+        } else {
+          strAnnounce = strAnnounce + " Xóa thành công: " + item.id + "\n";
+        }
+      });
+      await this.getData();
+
+      this.confirm.success = true;
+      this.confirm.message = strAnnounce;
+      await Promise.all([
+        await this.$refs.ShopModalDelete_ref.hide(),
+        await this.$refs.ShopModalConfirm_ref.show(),
+        await this.getData(),
+      ]);
     },
   },
 
   filters: {
     // thêm dấu cách vào vị trí thứ 3 của số điện thoại
-    getPhone: function(value) {
-      
+    getPhone: function (value) {
       if (value != "" && value != null && value != undefined) {
         var phone = /\b(\d{1,3})(\d*)\b/;
-        var match = phone.exec(value);  
-        return match.splice(1).join(' ');      
+        var match = phone.exec(value);
+        return match.splice(1).join(" ");
       }
       return "";
-    }    
+    },
   },
   async created() {
-      await this.getData();
-    },
+    await this.getStatusData();
+    await this.getData();
+  },
 
   watch: {
-     pageIndex: async function () {
-      await this.getData();      
+    pageIndex: async function () {
+      await this.getData();
     },
     // 'search':async function (){
     //   console.log("watch search");
-    //    await this.getData(); 
+    //    await this.getData();
     // }
     search: {
-     async handler(){ // trình theo dõi sâu đối với object
-       console.log("watch search");
-       clearTimeout(this.debounce);
-      this.debounce = setTimeout(() =>  {
-         this.getData(1);
-      }, 1000)
-     },
-     deep: true
-  }
-  }
+      async handler() {
+        // trình theo dõi sâu đối với object
+        console.log("watch search");
+        clearTimeout(this.debounce);
+        this.debounce = setTimeout(() => {
+          this.getData(1);
+        }, 1000);
+      },
+      deep: true,
+    },
+  },
 };
 </script>
 
@@ -379,10 +415,10 @@ export default {
   transition: 0.2s;
 }
 
-.button-all:hover{
+.button-all:hover {
   transition: 0.2s;
-    transform: scale(1.05);
-     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 20px rgb(102 175 233 / 40%);
+  transform: scale(1.05);
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 20px rgb(102 175 233 / 40%);
 }
 
 .content-header {
@@ -399,6 +435,13 @@ export default {
 }
 .list-button button:hover {
   background-color: #0088c1;
+}
+
+th .h-container-row {
+  padding: 1px;
+}
+th .h-container-row button {
+  margin-right: 1px;
 }
 
 th:first-child {

@@ -2,7 +2,7 @@
   <transition name="component-fade" mode="out-in">
     <div
       class="talk-bubble"
-      v-bind:class="validate.success ? 'h-success' : 'h-fail'"
+     v-bind:class="color"
       v-bind:style="{
         left: validate.coordinates.left,
        top: validate.coordinates.top
@@ -10,7 +10,7 @@
       v-show="visible"
     >
       <div class="talktext">
-        <p>
+        <p>          
           {{ validate.talk }}
         </p>
       </div>
@@ -20,9 +20,11 @@
 
 <script>
 export default {
-  props: {
-    validate: Object,
-  },
+  // props: {
+  //   validate: Object,
+  //   color: Text
+  // },
+  props: ['color','validate' ],
   data() {
     return {
       visible: false,
@@ -36,17 +38,17 @@ export default {
     },
     show: async function () {
       this.visible = true;
-      console.log("show call");
-       clearTimeout(this.debounce);
-      this.debounce = setTimeout(() =>  {
-         setTimeout(
-        function () {
-          console.log("show 5s");
-          this.visible = false;
-        }.bind(this),
-        5000
-      );
-      }, 2000);
+      // console.log("show call");
+      //  clearTimeout(this.debounce);
+      // this.debounce = setTimeout(() =>  {
+      //    setTimeout(
+      //   function () {
+      //     console.log("show 5s");
+      //     this.visible = false;
+      //   }.bind(this),
+      //   5000
+      // );
+      // }, 2000); 
       
     }
   }
@@ -55,15 +57,25 @@ export default {
 
 <style src="./modal.scss" lang="scss" />
 <style scoped>
+
+.red{
+   background-color: red;
+   color: #ffffff;
+}
+
+.black{
+   background-color: #000000;
+   color: #ffffff;
+}
+
 .talk-bubble {
   display: inline-block;
   position: absolute;
   width: 200px;
   height: auto;
   min-height: 40px;
-  border-radius: 4px;
-  background-color: red;
-  color: #ffffff;
+  border-radius: 4px;  
+  
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 5px 5px 20px rgba(0, 0, 0, 0.18) !important;  
   z-index: 99999;
 }

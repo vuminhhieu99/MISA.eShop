@@ -101,7 +101,7 @@ namespace Misa.Bussiness.Version1
             ServiceResult serviceResult = new ServiceResult();
             if(shop.WardId == 0)
             {
-                shop.WardId = 1;
+                shop.WardId = null;
             }
             //validate Data
             _baseBussiness.ValidateObject(ref serviceResult,ref shop);            

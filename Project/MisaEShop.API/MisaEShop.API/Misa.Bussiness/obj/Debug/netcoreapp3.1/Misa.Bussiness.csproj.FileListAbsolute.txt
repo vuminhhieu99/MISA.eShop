@@ -14,3 +14,19 @@ E:\Bài thi MISA eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\bin\De
 E:\Bài thi MISA eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\bin\Debug\netcoreapp3.1\Misa.Data.pdb
 E:\Bài thi MISA eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\bin\Debug\netcoreapp3.1\Misa.Common.pdb
 E:\Bài thi MISA eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\obj\Debug\netcoreapp3.1\Misa.Bussiness.csproj.CopyComplete
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\bin\Debug\netcoreapp3.1\Misa.Bussiness.deps.json
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\bin\Debug\netcoreapp3.1\Misa.Bussiness.dll
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\bin\Debug\netcoreapp3.1\Misa.Bussiness.pdb
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\bin\Debug\netcoreapp3.1\Misa.Common.dll
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\bin\Debug\netcoreapp3.1\Misa.Data.dll
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\bin\Debug\netcoreapp3.1\Misa.Data.pdb
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\bin\Debug\netcoreapp3.1\Misa.Common.pdb
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\obj\Debug\netcoreapp3.1\Misa.Bussiness.csprojAssemblyReference.cache
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\obj\Debug\netcoreapp3.1\Misa.Bussiness.Properties.Resources.resources
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\obj\Debug\netcoreapp3.1\Misa.Bussiness.csproj.GenerateResource.cache
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\obj\Debug\netcoreapp3.1\Misa.Bussiness.AssemblyInfoInputs.cache
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\obj\Debug\netcoreapp3.1\Misa.Bussiness.AssemblyInfo.cs
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\obj\Debug\netcoreapp3.1\Misa.Bussiness.csproj.CoreCompileInputs.cache
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\obj\Debug\netcoreapp3.1\Misa.Bussiness.csproj.CopyComplete
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\obj\Debug\netcoreapp3.1\Misa.Bussiness.dll
+E:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Bussiness\obj\Debug\netcoreapp3.1\Misa.Bussiness.pdb

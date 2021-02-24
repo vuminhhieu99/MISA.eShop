@@ -8,9 +8,10 @@
         </div>
       </div>
       <div class="h-dialog-content-body">
-        <ModalValidata ref="ModalValidata_ref" :validate="validateBag" />
+        <ModalValidata ref="ModalValidata_ref" :validate="validateBag" color="red"/>
+        <ModalValidata ref="ModalImfomation_ref" :validate="validateBag" color="black"/>
         <div class="form-group h-container-center">
-          <p class="label-text text-one-line">
+          <p class="label-text text-one-line" ref="lb_shopCode">
             Mã cửa hàng<span class="h-color-validate">&nbsp;*</span>
           </p>
           <input
@@ -23,12 +24,12 @@
         </div>
 
         <div class="form-group h-container-center">
-          <p class="label-text text-one-line">
+          <p class="label-text text-one-line" ref="lb_shopName">
             Tên cửa hàng<span class="h-color-validate">&nbsp;*</span>
           </p>
           <input
             class="form-control w-lg"
-            placeholder="Bắt buộc"
+            placeholder="Bắt buộc..."
             v-bind:class="{ 'is-valid-fail': !validate.shopName }"
             tabindex="2"
             v-model="shop.shopName"
@@ -36,18 +37,18 @@
         </div>
         <div class="form-group h-container-center">
           <p class="label-text text-one-line">
-            Địa chỉ<span class="h-color-validate">&nbsp;*</span>
+            Địa chỉ<span class="h-color-validate" ref="lb_shopCode">&nbsp;*</span>
           </p>
           <input
             class="form-control w-lg"
-            placeholder="Bắt buộc"
+            placeholder="Bắt buộc..."
             v-bind:class="{ 'is-valid-fail': !validate.address }"
             tabindex="3"
             v-model="shop.address"
           />
         </div>
         <div class="h-container">
-          <div class="col-sm-6">
+          <div class="col-6">
             <div class="form-group h-container-center">
               <p class="label-text text-one-line">Số điện thoại</p>
               <input
@@ -105,7 +106,7 @@
               </select>
             </div>
           </div>
-          <div class="col-sm-6 h-container-column p-column">
+          <div class="col-6 h-container-column p-column">
             <div class="form-group h-container-center">
               <p class="label-text text-one-line">Mã số thuế</p>
               <input
@@ -222,9 +223,14 @@ export default {
 
       validateBag: {
         coordinates: vldShop.COORDINATES.shopCode,
-        talk: "",
-        success: true,
+        talk: "",        
       },
+
+      imformationBag: {
+        coordinates: null,
+        talk:""
+      },
+
       validate: {
         shopCode: false,
         shopName: false,
@@ -427,39 +433,69 @@ export default {
       this.selectedCity = 0;
       this.selectedDistrict = 0;
     },
-  },
 
-  watch: {
-    "shop.shopCode": function () {
-      this.validateBag = vldShop.shopCode(this.shop.shopCode);
-      if (this.validateBag.success == true) {
+    // show imformation
+    showImformation_ShopCode: async function () {
+
+      this.$refs.ModalImfomation_ref.show();
+    },
+
+
+ /// validate
+    // - ShopCode
+    val_ShopCode: function () {
+       var resutlBag = vldShop.shopCode(this.shop.shopCode);
+      if (resutlBag.success == true) {        
         this.hideValidate();
         this.validate.shopCode = true;
       } else {
+        this.validateBag.coordinates = resutlBag.coordinates;
+        this.validateBag.talk = resutlBag.talk;
         this.showValidate();
         this.validate.shopCode = false;
       }
     },
-    "shop.shopName": function () {
-      this.validateBag = vldShop.shopName(this.shop.shopName);
-      if (this.validateBag.success == true) {
+
+     // - ShopName
+    val_ShopName: function () {
+      var resutlBag = vldShop.shopName(this.shop.shopName);
+      if (resutlBag.success == true) {
         this.hideValidate();
         this.validate.shopName = true;
       } else {
+        this.validateBag.coordinates = resutlBag.coordinates;
+        this.validateBag.talk = resutlBag.talk;
         this.showValidate();
         this.validate.shopName = false;
       }
     },
-    "shop.address": function () {
-      this.validateBag = vldShop.shopAddress(this.shop.address);
-      if (this.validateBag.success == true) {
+
+    // - Address
+     val_Address: function () {
+     var resutlBag = vldShop.shopAddress(this.shop.address);
+      if (resutlBag.success == true) {
         this.hideValidate();
         this.validate.address = true;
       } else {
+        this.validateBag.coordinates = resutlBag.coordinates;
+        this.validateBag.talk = resutlBag.talk;
         this.showValidate();
         this.validate.address = false;
       }
     },
+    ///-------------------------
+  },
+
+  watch: {
+    "shop.shopCode": function () {
+      this.val_ShopCode();
+    },
+    "shop.shopName": function () {
+      this.val_ShopName();
+    },
+    "shop.address": function () {
+      this.val_Address();
+    },   
     selectedCountry: async function () {
       if (this.lock == true) return;
       await this.getCityData();

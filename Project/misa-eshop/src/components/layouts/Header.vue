@@ -2,7 +2,7 @@
   <nav class="main-header h-container-row">
     <div class="catalog-name h2">Cửa Hàng</div>
 
-    <ul class="user-head ml-auto ">
+    <ul class="user-head ml-auto">
       <li class="item-head mr-1 h-container-center">
         <select name="restaurantName" class="form-control">
           <option value="0">--Chọn cửa hàng--</option>
@@ -12,11 +12,11 @@
         </select>
       </li>
       <li class="item-head h-container-center">
-           <img
-            src="~@/assets/img/default-avatar.jpg"
-            class="img-circle"
-            height="40"
-          />
+        <img
+          src="~@/assets/img/default-avatar.jpg"
+          class="img-circle"
+          height="40"
+        />
         <select name="userName" class="select-head">
           <option value="0">Vũ Minh Hiếu</option>
           <option value="1">Lê Hồng Phong</option>
@@ -25,20 +25,20 @@
         </select>
       </li>
       <li class="item-head h-container-center-center item-head-call h-active">
-          <i class="fas fa-phone-alt fa-2x">
-            <span class="text-inclined">
-              New
-            </span>
+        <div class="circle-boder-icon h-container-center-center">
+          <i class="fas fa-phone-alt fa-lg">
+            <span class="text-inclined"> New </span>
           </i>
+        </div>
       </li>
       <li class="item-head h-container-center-center item-head-icon">
-          <i class="fas fa-bell fa-2x">
-            <span class="item-head-notify"></span>
-          </i>
+        <i class="fas fa-bell fa-2x">
+          <span class="item-head-notify"></span>
+        </i>
       </li>
       <li class="item-head h-container-center-center item-head-icon">
-          <i class="fas fa-question-circle fa-2x"></i>
-      </li>      
+        <i class="fas fa-question-circle fa-2x"></i>
+      </li>
     </ul>
   </nav>
 </template>
@@ -62,14 +62,14 @@ export default {
   background-color: #ffff;
   box-sizing: border-box;
   padding: 0 10px;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15), 0px 0px 25px rgba(0, 0, 0, 0.12)!important;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15), 0px 0px 25px rgba(0, 0, 0, 0.12) !important;
   z-index: 2;
 }
 .catalog-name {
   line-height: 60px;
   margin-left: 0.6rem;
   /* không cho xuống dòng */
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
 .user-head {
@@ -105,59 +105,73 @@ export default {
     0 0 8px rgba(102, 175, 233, 0.6);
 }
 
-.item-head-icon{
+.item-head-icon {
   width: 60px;
   color: #00557b;
   margin: 0;
   border-right: 1px solid #bbbbbb;
 }
-.item-head-icon:last-child{
-  border-right:0;
+.item-head-icon:last-child {
+  border-right: 0;
 }
 
-.item-head-call{
+.item-head-call {
   color: #ffffff;
-  width: 60px; 
-   margin: 0;
-       overflow: hidden;
+  width: 60px;
+  margin: 0;
+  overflow: hidden;
 }
 
-.item-head i{
+.item-head i {
   position: relative;
 }
 
 .item-head-notify {
-   height: 12px;
-    width: 12px;
-    background: #ffa500f2;
-    font-size: 10px;
-    color: #ffffff;
-    line-height: 13px;
-    text-align: center;
-    font-weight: 700;
-    display: inline-block;
-    border-radius: 50%;
-    position: absolute;
-    top: 4px;
-    right: -4px;
+  height: 12px;
+  width: 12px;
+  background: #ffa500f2;
+  font-size: 10px;
+  color: #ffffff;
+  line-height: 13px;
+  text-align: center;
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  right: -4px;
 }
 .text-inclined {
-        background: #ff0000;
-    color: #ffffff;
-    line-height: 16px;
-    transform: rotate(
-45deg
-);
-    font-size: 12px;
-    position: absolute;
-    top: -12px;
-    left: -12px;
-    text-align: center;
-    width: 5rem;
-   
-    
-  
+  background: #ff0000;
+  color: #ffffff;
+  line-height: 16px;
+  transform: rotate(45deg);
+  font-size: 12px;
+  position: absolute;
+  top: -18px;
+  left: -14px;
+  text-align: center;
+  width: 5rem;
 }
 
-
+.circle-boder-icon {
+  position: relative;
+  border: 6px solid #ffffff;
+  background-color: transparent;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.circle-boder-icon::after {
+  content: " ";
+  position: absolute;
+  height: 8px;
+  width: 8px;
+      left: 0px;
+    bottom: -2px;
+  border: 5px solid;
+  border-color: transparent transparent #00557b transparent;
+  border-right: none;
+  transform: rotate(-20deg);
+}
 </style>

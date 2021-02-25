@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\BlueMan\\.nuget\\packages\\": {}
+    "C:\\Users\\vmhieu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
+      "projectUniqueName": "C:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
       "projectName": "Misa.Common",
-      "projectPath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
-      "packagesPath": "C:\\Users\\BlueMan\\.nuget\\packages\\",
-      "outputPath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\obj\\",
+      "projectPath": "C:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
+      "packagesPath": "C:\\Users\\vmhieu\\.nuget\\packages\\",
+      "outputPath": "C:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\BlueMan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vmhieu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -55,12 +55,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

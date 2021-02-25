@@ -372,11 +372,13 @@ export default {
       await this.getNeighborsData();
       
     },
-
+    
+    // ẩn background của form
     hide: async function () {
       await this.$refs.BaseForm_ref.hide();
     },
 
+    // hiện dialog
     show: async function () {
       this.lock = true;
       this.resetForm();

@@ -26,7 +26,7 @@
       </li>
       <li class="item-head h-container-center-center item-head-call h-active">
         <div class="circle-boder-icon h-container-center-center">
-          <i class="fas fa-phone-alt fa-lg">
+          <i class="fas fa-phone-alt">
             <span class="text-inclined"> New </span>
           </i>
         </div>
@@ -156,11 +156,11 @@ export default {
 
 .circle-boder-icon {
   position: relative;
-  border: 6px solid #ffffff;
-  background-color: transparent;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
+    border: 5px solid #ffffff;
+    background-color: transparent;
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
 }
 .circle-boder-icon::after {
   content: " ";

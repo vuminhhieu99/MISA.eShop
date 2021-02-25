@@ -13,7 +13,7 @@ namespace Misa.Data.Version1
 {
     public class DbConnection<T> : IBaseData<T>
     {       
-        private string ConnectionString = "Server=DESKTOP-A34QOR8;Database=EShopDB;User Id=blueman; Password=123;Trusted_Connection=True;MultipleActiveResultSets=true;Pooling=false";
+        private string ConnectionString = "Server=FRESHER-32;Database=EShopDB;User Id=blueman; Password=123;Trusted_Connection=True;MultipleActiveResultSets=true;Pooling=false";
         public IDbConnection dbConnection;
         public DbConnection()
         {

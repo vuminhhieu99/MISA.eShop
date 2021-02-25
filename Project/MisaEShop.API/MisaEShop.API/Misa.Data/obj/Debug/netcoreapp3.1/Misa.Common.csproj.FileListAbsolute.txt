@@ -24,3 +24,4 @@ C:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Data\obj\Debug\net
 C:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Data\obj\Debug\netcoreapp3.1\Misa.Common.csproj.CoreCompileInputs.cache
 C:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Data\obj\Debug\netcoreapp3.1\Misa.Common.dll
 C:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Data\obj\Debug\netcoreapp3.1\Misa.Common.pdb
+C:\vmhieu\MISA.eShop\Project\MisaEShop.API\MisaEShop.API\Misa.Data\obj\Debug\netcoreapp3.1\Misa.Common.csprojAssemblyReference.cache

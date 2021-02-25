@@ -15,6 +15,12 @@ body {
     height: auto;
 }
 
+textarea{
+    font-family: GoogleSans-Regular;   
+    height: auto !important;
+    resize: none;
+}
+
 .content {
     position: relative;
     background-color: #ffffff;

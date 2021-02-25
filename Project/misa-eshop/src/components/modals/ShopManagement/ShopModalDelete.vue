@@ -7,7 +7,7 @@
           <button id="btnCancel" v-on:click="hide()"></button>
         </div>
       </div>
-      <div class="h-container-center mt-1 mb-1">
+      <div class="h-container-center">
         <i class="fas fa-question-circle fa-2x"></i>
         <div class="text-notify h-container-column">
           <p>Cảnh báo có {{ listId.length }} cửa hàng được chọn !</p>
@@ -54,6 +54,8 @@ export default {
     show: async function () {
       await this.$refs.BaseForm_ref.show();
     },
+
+    // lấy dữ liệu từ db và trả về ShoManagement
     Confirm: async function () {
       var listReponse=[];
       // var totalId = this.listId.length;

@@ -241,7 +241,8 @@ export default {
     // lấy data
     getData: async function (pageIndex = 1, pageSize = 10) {
       console.log("getData");
-      this.processing = true;
+      this.processing = true;      
+      this.resetSelected();
       const response = await axios.get("https://localhost:44336/api/Shop", {
         params: {
           pageIndex: pageIndex,
@@ -273,9 +274,9 @@ export default {
         (this.search.statusId = 0);
     },
 
-    reLoadData: async function () {
-      this.resetSearch();
-      this.resetSelected();
+    // reload lại dữ liệu và reset tìm kiếm
+    reLoadData: async function () {   
+       this.resetSearch();   
       await this.getStatusData();
       await this.getData();
     },
@@ -309,6 +310,9 @@ export default {
       }
       await this.$refs.ShopModalConfirm_ref.show();
     },
+
+    // xác nhận thông tin trả về từ modal edit sau khi sửa
+     // params: res: dữ liệu trả về từ modal con
     editCofirm: async function (res) {
       console.log("confirm update");
       if (res.misAeShopCode == 200) {
@@ -332,6 +336,9 @@ export default {
       }
       await this.$refs.ShopModalConfirm_ref.show();
     },
+
+    //xác nhận thông tin trả về từ modal delete sau khi xóa
+    // params: res: dữ liệu trả về từ modal con
     deletedCofirm: async function (res) {
       console.log("confirm");
 
@@ -366,15 +373,15 @@ export default {
       return "";
     },
   },
-  async created() {
+  async created() {   
     await this.getStatusData();
     await this.getData();
   },
 
   watch: {
-    pageIndex: async function () {
-      await this.getData();
-    },
+    // pageIndex: async function () {
+    //   await this.getData();
+    // },
     // 'search':async function (){
     //   console.log("watch search");
     //    await this.getData();
@@ -386,12 +393,13 @@ export default {
         clearTimeout(this.debounce);
         this.debounce = setTimeout(() => {
           this.getData(1);
-        }, 1000);
+        }, 300);
       },
       deep: true,
     },
   },
 };
+//  10.8.34.35
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -404,6 +412,7 @@ export default {
 .content-main {
   overflow-x: auto;
   overflow-y: auto;
+  max-height: calc(100vh - 180px);
 }
 
 .button-all {
@@ -426,6 +435,9 @@ export default {
 }
 .list-button {
   height: 35px;
+  position: sticky;
+    z-index: 10;
+    top: 0;
 }
 
 .list-button button {
@@ -465,4 +477,5 @@ th:nth-child(4) {
 th:last-child {
   width: 188px;
 }
+
 </style>

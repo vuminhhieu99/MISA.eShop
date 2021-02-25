@@ -35,12 +35,13 @@
             v-model="shop.shopName"
           />
         </div>
-        <div class="form-group h-container-center">
+        <div class="form-group h-container-row">
           <p class="label-text text-one-line">
             Địa chỉ<span class="h-color-validate" ref="lb_shopCode">&nbsp;*</span>
           </p>
-          <input
+           <textarea
             class="form-control w-lg"
+            rows="4"
             placeholder="Bắt buộc..."
             v-bind:class="{ 'is-valid-fail': !validate.address }"
             tabindex="3"

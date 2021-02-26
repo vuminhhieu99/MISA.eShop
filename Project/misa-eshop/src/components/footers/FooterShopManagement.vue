@@ -54,14 +54,14 @@ export default {
     start() {
       ///trường hợp không có bản ghi
       if(this.pageCount == 0){
-        return 0
+        return 0;
       }
       return (this.pageIndex - 1) * this.pageSize + 1;
     },
     end() {
       ///trường hợp không có bản ghi
       if(this.pageCount == 0){
-        return 0
+        return 0;
       }
       if (this.pageIndex == this.pageCount) return this.shopTotal;
       return this.start + this.pageSize - 1;

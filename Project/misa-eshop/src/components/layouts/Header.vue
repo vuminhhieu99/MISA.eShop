@@ -2,7 +2,7 @@
   <nav class="main-header h-container-row">
     
     <div class="catalog-name h2">Cửa Hàng</div>
-      <Combobox/>
+     
     <ul class="user-head ml-auto">
       <li class="item-head mr-1 h-container-center">
         <select name="restaurantName" class="form-control">
@@ -46,16 +46,14 @@
 
 <script>
 
-import Combobox from "../combobox/Combobox.vue";
+
 
 export default {
   name: "HelloWorld",
   props: {
     msg: String,
-  },
-  components: {
-    Combobox
   }
+ 
 };
 </script>
 

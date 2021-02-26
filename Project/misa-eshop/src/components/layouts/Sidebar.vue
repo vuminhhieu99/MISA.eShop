@@ -39,16 +39,16 @@
             </a>
           </li>
           <li class="h-item">
-            <a href="#" class="h-item-link h-hover h-selecled">
+            <router-link to="/ShopManagement" class="h-item-link h-hover h-selecled" >
               <i class="h-icon-nav fas fa-list-ul fa-lg"></i>
               <p class="h-item-text">Quản lý cửa hàng</p>
-            </a>
+            </router-link>
           </li>
           <li class="h-item">
-            <a href="#" class="h-item-link h-hover h-selecled">
+            <router-link to="/Merchandise" class="h-item-link h-hover h-selecled">
               <i class="h-icon-nav fas fa-cubes fa-lg"></i>
               <p class="h-item-text">Hàng hóa</p>
-            </a>
+            </router-link>
           </li>
         </ul>
       </nav>

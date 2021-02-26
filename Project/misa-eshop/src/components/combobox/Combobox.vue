@@ -9,18 +9,28 @@
                   {{ option.text }}
                 </option>
     </select> -->
-    <div class="form-control">
-            <input type="text"/>
-            <span class="drop-hover">
-                <div class="dropdown">
-                    <a href=""> option1</a>  
-                      <a href=""> optio2</a>  
-                        <a href=""> option3</a>  
-            </div>
+    <input type="checkbox" id="btnControl"/>
+    <label  for="btnControl">
+<div class="select">
+           <span class="select-value">value</span>
+           <i class="fas fa-chevron-down"></i>
+            <span class="dropdown">
+                <div class="form-input">
+                    <input type="text"  class="form-search">
+                </div>
+                
+                <ul class="select-result-option">
+                    <li href=""> option1</li>  
+                      <li href=""> optio2</li>  
+                        <li href=""> option3</li>  
+            </ul>
             </span>
             
 
     </div>
+    </label>
+
+    
    
 
 </div>
@@ -45,59 +55,110 @@ export default {
 <style scoped>
 .relative{
     position: relative;
+    z-index: 10000;
 }
-select{
+#btnControl {
     display: none;
 }
-.drop-hover{
-    float: left;
-    position: relative;
-    /* display: inline-block; */
-}
-.drop-hover:hover .dropdown{
+#btnControl:checked + label .dropdown {
     display: block;
 }
-.dropdown{
-    position: relative;
-    display: none;
-}
-.dropdown a {
-    position:absolute;
-}
 
-.form-control{
-        height: 40px;
-    margin: 0 0 0 0;
-    display: block;
-    width: 100%;
-    padding: 0;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555555;
-    background-color: #fff;
-    border: none;
-    border-radius: 4px;
-}
-
-.form-control:focus{
+#btnControl:checked + label .select {
     border-color: #66afe9;
     outline: 0;
     
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
-input{
-       border: none;
-    height: 100%;
-    margin: 0 0 0 0;
-    display: block;
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding: 6px 12px;
-    font-size: 14px;
-    border-radius: 4px;
-    line-height: 1.42857143;
+
+
+
+.select{
+        height: 40px;
+    width: 160px;
+    border: 1px solid #cccccc;
+    border-radius: 4px ;
+     color: #555555;
+         /* display: flex; */
 }
+.select-value{
+        float: left;
+    width: 80%;
+    height: 100%;
+    padding: 4px 16px;
+    line-height: 2.128571;
+}
+
+i{
+  float: left;    
+    height: 100%;
+    line-height: 40px;
+    margin-left: auto;
+    margin-right: 12px;
+}
+
+.dropdown{
+    display: none;
+    padding-top: 40px;
+        border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+.select-result-option{
+        padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+    margin: 0 0 0 0;
+    box-sizing: border-box;
+    line-height: 40px;
+    padding-left: 10px;
+}
+li:hover{
+    background-color: #0088c1;
+}
+
+
+
+
+.dropdown a {
+    position:absolute;
+}
+
+.form-input{
+    margin-top: 0;
+    padding: 4px 8px;
+    top: 40px;
+    left: 0px;
+    height: 100%;
+    border-bottom: 1px solid #cccccc;
+    width: 100%;
+    display: flex;
+
+}
+
+.form-search{
+    height: 40px;
+    margin: 0 0 0 0;
+    width: 100%;
+        padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border-radius: 4px;
+    top: 0px;
+}
+
+.form-search:focus{
+    border-color: #66afe9;
+    outline: 0;
+    
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
 
 input:focus{
      border-color: #66afe9;

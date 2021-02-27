@@ -52,7 +52,7 @@ namespace Misa.Bussiness.Version1
         /// </summary>
         /// <param name="pageRequest">keyword, id phòng ban, id chức vụ, trang số, số bản ghi</param>
         /// <returns>ServiceResult</returns>
-        /// create :4/2/2021
+        /// create 18/2/2021
         public async Task<ServiceResult> GetData(PageRequest pageRequest)
         {
             var list = await _shopData.GetData(pageRequest);

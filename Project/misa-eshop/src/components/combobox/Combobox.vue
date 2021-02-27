@@ -1,6 +1,6 @@
 <template>
 <div class="relative">
-    <!-- <select id="">
+    <select v-model="select" ref="select">
         <option
                   v-for="option in data"
                   :key="option.value"
@@ -8,21 +8,19 @@
                 >
                   {{ option.text }}
                 </option>
-    </select> -->
+    </select>
     <input type="checkbox" id="btnControl"/>
     <label  for="btnControl">
 <div class="select">
-           <span class="select-value">value</span>
+           <span class="select-value">{{showText}}</span>
            <i class="fas fa-chevron-down"></i>
             <span class="dropdown">
                 <div class="form-input">
-                    <input type="text"  class="form-search">
+                    <input type="text"  class="form-search" v-model="search">
                 </div>
                 
                 <ul class="select-result-option">
-                    <li href=""> option1</li>  
-                      <li href=""> optio2</li>  
-                        <li href=""> option3</li>  
+                   <li v-for="option in data" :key="option.value" v-bind="option.value" @click="chooseOption(option)">{{option.text}}</li>
             </ul>
             </span>
             
@@ -40,13 +38,21 @@
 <script>
 export default {
  
-//   props: ['data','value' ],
+   props: ['data','select' ],
   data() {
     return {
     // data: false,
     //   value: 0,
+    search: "",
+    showText:""
     };
   },
+  methods: {
+      chooseOption: function(option){
+        this.select= option.value;
+        this.showText= option.text;
+      }
+  }
 
  
    

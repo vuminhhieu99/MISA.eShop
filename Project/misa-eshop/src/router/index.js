@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 const routes = [
   { path: '/ShopManagement', name: 'ShopManagement', component: ShopManagement },
   { path: '/Merchandise', name: 'Merchandise', component: Merchandise },
-    
+  { path: '*', redirect: '/ShopManagement' }
 ]
 
 const router = new VueRouter({

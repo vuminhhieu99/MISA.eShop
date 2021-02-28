@@ -11,6 +11,7 @@
     </select>
     <input type="checkbox" id="btnControl"/>
     <label  for="btnControl">
+        <!-- <input v-model="dataSearch[0].text" /> -->
 <div class="select">
            <span class="select-value">{{showText}}</span>
            <i class="fas fa-chevron-down"></i>
@@ -20,7 +21,7 @@
                 </div>
                 
                 <ul class="select-result-option">
-                   <li v-for="option in data" :key="option.value" v-bind="option.value" @click="chooseOption(option)">{{option.text}}</li>
+                   <li v-for="option in dataSearch" :key="option.value" v-bind="option.value" @click="chooseOption(option)">{{option.text}}</li>
             </ul>
             </span>
             
@@ -36,22 +37,33 @@
 </template>
 
 <script>
+ //import Vue from 'vue'
 export default {
  
    props: ['data','select' ],
   data() {
     return {
     // data: false,
-    //   value: 0,
+    //   value: 0,    
     search: "",
-    showText:""
+    showText:"",
+     dataSearch : [{ text: "--quốc123gia--", value: 0 }]
     };
   },
   methods: {
       chooseOption: function(option){
         this.select= option.value;
-        this.showText= option.text;
+        this.search= option.text;
       }
+  },  
+  watch:{
+      search: function(){
+        this.dataSearch = this.data.filter(option => option.text.include(this.search));
+      }
+  },
+  mounted(){
+      //this.dataSearch = Vue.util.extend({}, this.optionCountry)
+        //this.dataSearch = JSON.parse(JSON.stringify());
   }
 
  

@@ -1,7 +1,7 @@
 <template>
   <aside class="content">
-       <Combobox :select="selectedCountry" :data="optionCountry"/>
-    
+       <Combobox v-bind:select="selectedCountry" v-bind:data="optionCountry" @input="selectedCountry = $event" v-bind:style="{'height': '35px'}"/>
+       <div>{{selectedCountry}}</div>    
   </aside>
 </template>
 

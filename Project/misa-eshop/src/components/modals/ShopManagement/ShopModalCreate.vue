@@ -8,7 +8,11 @@
         </div>
       </div>
       <div class="h-dialog-content-body">
-        <ModalValidata ref="ModalValidata_ref" :validate="validateBag" color="red" />
+        <ModalValidata
+          ref="ModalValidata_ref"
+          :validate="validateBag"
+          color="red"
+        />
         <div class="form-group h-container-center">
           <p class="label-text text-one-line">
             Mã cửa hàng<span class="h-color-validate">&nbsp;*</span>
@@ -19,7 +23,7 @@
             v-bind:class="{ 'is-valid-fail': !validate.shopCode }"
             tabindex="1"
             v-model="shop.shopCode"
-            @mouseover="val_ShopCode()"
+            @click="val_ShopCode()"
           />
         </div>
 
@@ -33,7 +37,7 @@
             v-bind:class="{ 'is-valid-fail': !validate.shopName }"
             tabindex="2"
             v-model="shop.shopName"
-            @mouseover="val_ShopName()"
+            @click="val_ShopName()"
           />
         </div>
         <div class="form-group h-container-row">
@@ -47,7 +51,7 @@
             v-bind:class="{ 'is-valid-fail': !validate.address }"
             tabindex="3"
             v-model="shop.address"
-            @mouseover="val_Address()"
+            @click="val_Address()"
           />
         </div>
         <div class="h-container">
@@ -62,51 +66,33 @@
             </div>
             <div class="form-group h-container-center">
               <p class="label-text text-one-line">Quốc gian</p>
-              <select
+              <Combobox
+                v-bind:select="selectedCountry"
+                v-bind:data="optionCountry"
+                @input="selectedCountry = $event"
                 class="form-control w-sm"
                 tabindex="5"
-                v-model="selectedCountry"
-              >
-                <option
-                  v-for="option in optionCountry"
-                  :key="option.value"
-                  v-bind:value="option.value"
-                >
-                  {{ option.text }}
-                </option>
-              </select>
+              />
             </div>
             <div class="form-group h-container-center">
               <p class="label-text text-one-line">Tỉnh/Thành phố</p>
-              <select
+              <Combobox
+                v-bind:select="selectedCity"
+                v-bind:data="optionCity"
+                @input="selectedCity = $event"
                 class="form-control w-sm"
                 tabindex="6"
-                v-model="selectedCity"
-              >
-                <option
-                  v-for="option in optionCity"
-                  :key="option.value"
-                  v-bind:value="option.value"
-                >
-                  {{ option.text }}
-                </option>
-              </select>
+              />              
             </div>
             <div class="form-group h-container-center">
               <p class="label-text text-one-line">Phường/Xã</p>
-              <select
+                <Combobox
+                v-bind:select="wardId"
+                v-bind:data="optionWard"
+                @input="wardId = $event"
                 class="form-control w-sm"
-                tabindex="7"
-                v-model="shop.wardId"
-              >
-                <option
-                  v-for="option in optionWard"
-                  :key="option.value"
-                  v-bind:value="option.value"
-                >
-                  {{ option.text }}
-                </option>
-              </select>
+                tabindex="8"
+              />
             </div>
           </div>
           <div class="col-6 h-container-column p-column">
@@ -114,27 +100,20 @@
               <p class="label-text text-one-line">Mã số thuế</p>
               <input
                 class="form-control w-sm"
-                tabindex="8"
+                tabindex="9"
                 v-model="shop.taxCode"
               />
             </div>
             <div class="h-container-column h-container-end h-100">
               <div class="form-group h-container-center">
                 <p class="label-text text-one-line">Quận/Huyện</p>
-                <select
-                  class="form-control w-sm"
-                  tabindex="9"
-                  v-model="selectedDistrict"
-                >
-                  <option
-                    v-for="option in optionDistrict"
-                    :key="option.value"
-                    v-bind:value="option.value"
-                  >
-                    {{ option.text }}
-                  </option>
-                </select>
-              </div>
+                 <Combobox
+                v-bind:select="selectedDistrict"
+                v-bind:data="optionDistrict"
+                @input="selectedDistrict = $event"
+                class="form-control w-sm"
+                tabindex="7"
+              /></div>
               <div class="form-group h-container-center">
                 <p class="label-text text-one-line">Đường phố</p>
                 <input
@@ -190,6 +169,7 @@ import * as axios from "axios";
 import * as vldShop from "./ValidateShop.js";
 import BaseModalForm from "../BaseModalForm.vue";
 import ModalValidata from "../ModalValidata.vue";
+import Combobox from "../../combobox/Combobox.vue";
 // //coordinates follow screen  ( pixel )
 // const COORDINATES = {
 //   shopCode: { left: "742px", top: "-6px" },
@@ -230,21 +210,20 @@ export default {
 
       validateBag: {
         coordinates: vldShop.COORDINATES.shopCode,
-        talk: ""        
+        talk: "",
       },
-      
-     
 
       validate: {
-        shopCode: false,
-        shopName: false,
-        address: false,
+        shopCode: true,
+        shopName: true,
+        address: true,
       },
     };
   },
   components: {
     BaseModalForm,
     ModalValidata,
+    Combobox,
   },
   methods: {
     //lấy danh sách quốc gia
@@ -320,7 +299,9 @@ export default {
     },
 
     show: async function () {
+      this.resetForm();
       this.$refs.BaseForm_ref.show();
+      await this.hideValidate();
       await this.getCounTryData();
     },
 
@@ -337,18 +318,18 @@ export default {
     checkValidate: function () {
       var check = true;
 
-      if (!this.validate.shopCode){
-          this.val_ShopCode(); // kiểm tra lại và show diglog valide;
-           check = false;
-      }
-      if (!this.validate.shopName){
-         this.val_ShopName(); // kiểm tra lại và show diglog valide;
+      if (!this.validate.shopCode) {
+        this.val_ShopCode(); // kiểm tra lại và show diglog valide;
         check = false;
-      } 
-      if (!this.validate.address){
-         this.val_Address(); // kiểm tra lại và show diglog valide;
-         check = false;
-      } 
+      }
+      if (!this.validate.shopName) {
+        this.val_ShopName(); // kiểm tra lại và show diglog valide;
+        check = false;
+      }
+      if (!this.validate.address) {
+        this.val_Address(); // kiểm tra lại và show diglog valide;
+        check = false;
+      }
       return check;
     },
 
@@ -391,13 +372,17 @@ export default {
       this.selectedCountry = 0;
       this.selectedCity = 0;
       this.selectedDistrict = 0;
+
+      this.validate.shopCode = true;
+      this.validate.shopName = true;
+      this.validate.address = true;
     },
 
     /// validate
     // - ShopCode
     val_ShopCode: function () {
-       var resutlBag = vldShop.shopCode(this.shop.shopCode);
-      if (resutlBag.success == true) {        
+      var resutlBag = vldShop.shopCode(this.shop.shopCode);
+      if (resutlBag.success == true) {
         this.hideValidate();
         this.validate.shopCode = true;
       } else {
@@ -408,7 +393,7 @@ export default {
       }
     },
 
-     // - ShopName
+    // - ShopName
     val_ShopName: function () {
       var resutlBag = vldShop.shopName(this.shop.shopName);
       if (resutlBag.success == true) {
@@ -423,8 +408,8 @@ export default {
     },
 
     // - Address
-     val_Address: function () {
-     var resutlBag = vldShop.shopAddress(this.shop.address);
+    val_Address: function () {
+      var resutlBag = vldShop.shopAddress(this.shop.address);
       if (resutlBag.success == true) {
         this.hideValidate();
         this.validate.address = true;

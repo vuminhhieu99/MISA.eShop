@@ -1825,19 +1825,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vmhieu\\.nuget\\packages\\": {}
+    "C:\\Users\\BlueMan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\MisaEShop.API\\MISAeShop.API.csproj",
+      "projectUniqueName": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\MisaEShop.API\\MISAeShop.API.csproj",
       "projectName": "MISAeShop.API",
-      "projectPath": "C:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\MisaEShop.API\\MISAeShop.API.csproj",
-      "packagesPath": "C:\\Users\\vmhieu\\.nuget\\packages\\",
-      "outputPath": "C:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\MisaEShop.API\\obj\\",
+      "projectPath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\MisaEShop.API\\MISAeShop.API.csproj",
+      "packagesPath": "C:\\Users\\BlueMan\\.nuget\\packages\\",
+      "outputPath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\MisaEShop.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\vmhieu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\BlueMan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1851,11 +1851,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Bussiness\\Misa.Bussiness.csproj": {
-              "projectPath": "C:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Bussiness\\Misa.Bussiness.csproj"
+            "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Bussiness\\Misa.Bussiness.csproj": {
+              "projectPath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Bussiness\\Misa.Bussiness.csproj"
             },
-            "C:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj": {
-              "projectPath": "C:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj"
+            "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj": {
+              "projectPath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj"
             }
           }
         }
@@ -1907,7 +1907,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

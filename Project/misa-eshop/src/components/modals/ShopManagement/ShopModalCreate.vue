@@ -65,7 +65,7 @@
               />
             </div>
             <div class="form-group h-container-center">
-              <p class="label-text text-one-line">Quốc gian</p>
+              <p class="label-text text-one-line">Quốc gia</p>
               <Combobox
                 v-bind:select="selectedCountry"
                 v-bind:data="optionCountry"
@@ -87,7 +87,7 @@
             <div class="form-group h-container-center">
               <p class="label-text text-one-line">Phường/Xã</p>
                 <Combobox
-                v-bind:select="wardId"
+                v-bind:select="shop.wardId"
                 v-bind:data="optionWard"
                 @input="wardId = $event"
                 class="form-control w-sm"

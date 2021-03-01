@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "33t8RtUEEcurcWDzUWezJwD/oRZmcFHEB5phQxvh97niVNI+B22jkxYbSXI0opQ6m3TAw6Pl3N83WugTA4uIPw==",
+  "dgSpecHash": "IPoDTAUX2qaFKdhccgYJx1L+mP0CF/aZtAurD4IE6r7f4+ribIRzhHuQmC/oFUrDyPN5i5pKscBPRvQ+cvjWUA==",
   "success": true,
-  "projectFilePath": "C:\\vmhieu\\MISA.eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\vmhieu\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\vmhieu\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
-  ],
+  "projectFilePath": "E:\\Bài thi MISA eShop\\Project\\MisaEShop.API\\MisaEShop.API\\Misa.Data\\Misa.Common.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

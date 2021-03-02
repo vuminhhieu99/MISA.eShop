@@ -65,7 +65,7 @@
               />
             </div>
             <div class="form-group h-container-center">
-              <p class="label-text text-one-line">Quốc gian</p>
+              <p class="label-text text-one-line">Quốc gia</p>
               <Combobox
                 v-bind:select="selectedCountry"
                 v-bind:data="optionCountry"
@@ -87,7 +87,7 @@
             <div class="form-group h-container-center">
               <p class="label-text text-one-line">Phường/Xã</p>
                 <Combobox
-                v-bind:select="wardId"
+                v-bind:select="shop.wardId"
                 v-bind:data="optionWard"
                 @input="wardId = $event"
                 class="form-control w-sm"
@@ -166,6 +166,7 @@
 
 <script>
 import * as axios from "axios";
+import config from '@/config'
 import * as vldShop from "./ValidateShop.js";
 import BaseModalForm from "../BaseModalForm.vue";
 import ModalValidata from "../ModalValidata.vue";
@@ -229,7 +230,7 @@ export default {
     //lấy danh sách quốc gia
     getCounTryData: async function () {
       const response = await axios.get(
-        "https://localhost:44336/api/CounTry/BaseAll"
+        `${config.apiUrl}/CounTry/BaseAll`
       );
       var optionCountry = [];
       optionCountry.push({ text: "--quốc gia--", value: 0 });
@@ -243,7 +244,7 @@ export default {
     },
     // lấy danh sách thành phố theo quốc gia
     getCityData: async function () {
-      const response = await axios.get("https://localhost:44336/api/City", {
+      const response = await axios.get(`${config.apiUrl}/City`, {
         params: {
           countryId: this.selectedCountry,
         },
@@ -260,7 +261,7 @@ export default {
     },
     // lấy danh sách quận/huyện theo tỉnh/thành phố
     getDistrictData: async function () {
-      const response = await axios.get("https://localhost:44336/api/District", {
+      const response = await axios.get(`${config.apiUrl}/District`, {
         params: {
           cityId: this.selectedCity,
         },
@@ -278,7 +279,7 @@ export default {
 
     // lấy danh sách xã/phường theo quận huyện
     getWardData: async function () {
-      const response = await axios.get("https://localhost:44336/api/Ward", {
+      const response = await axios.get(`${config.apiUrl}/Ward`, {
         params: {
           districtId: this.selectedDistrict,
         },
@@ -348,7 +349,7 @@ export default {
         .slice(0, -1);
       ///
       await axios
-        .post("https://localhost:44336/api/Shop", this.shop)
+        .post(`${config.apiUrl}/Shop`, this.shop)
         .then(function (res) {
           console.log("success: " + res.data);
           confirm = res.data;

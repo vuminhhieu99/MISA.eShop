@@ -130,6 +130,7 @@
 
 <script>
 import * as axios from "axios";
+import config from '@/config'
 import ShopModalCreate from "../modals/ShopManagement/ShopModalCreate.vue";
 import ShopModalEdit from "../modals/ShopManagement/ShopModalEdit.vue";
 import ShopModalDelete from "../modals/ShopManagement/ShopModalDelete.vue";
@@ -225,7 +226,7 @@ export default {
     //lấy danh sách trạng thái cửa hàng
     getStatusData: async function () {
       const response = await axios.get(
-        "https://localhost:44336/api/StatusShop/BaseAll"
+        `${config.apiUrl}/StatusShop/BaseAll`
       );
       var optionStatus = [];
       optionStatus.push({ text: "--trạng thái--", value: 0 });
@@ -243,7 +244,7 @@ export default {
       console.log("getData");
       this.processing = true;      
       this.resetSelected();
-      const response = await axios.get("https://localhost:44336/api/Shop", {
+      const response = await axios.get(`${config.apiUrl}/Shop`, {
         params: {
           pageIndex: pageIndex,
           pageSize: pageSize,

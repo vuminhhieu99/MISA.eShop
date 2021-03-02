@@ -1,0 +1,19 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) ;
+    grid-template-rows: repeat(2,40px) ;
+    grid-auto-rows: 40px;
+    grid-gap: 5px;
+    grid-auto-flow: dense;
+    
+}
+
+.grid-2{
+    display: grid;
+    grid-template-columns: repeat(4,1fr) ;
+    grid-template-rows: repeat(3,40px) ;
+    grid-template-areas:
+    "m h h ." 
+    "m c c c"
+    "m f f .";
+}

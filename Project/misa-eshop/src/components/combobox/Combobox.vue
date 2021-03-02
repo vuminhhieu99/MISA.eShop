@@ -55,15 +55,13 @@ export default {
     return {
       debounce: null, // biến delay
       visible: false,
-      search: "",
-      showText: "",
+      search: ""     
     };
   },
   methods: {
     chooseOption: function (option) {
       //this.select = Vue.util.extend(option.value);
-      this.search = Vue.util.extend(option.text);
-      this.showText = option.text;
+      this.search = Vue.util.extend(option.text);     
       this.visible = false;
       this.$emit("input", JSON.parse(JSON.stringify(option.value)));
     },
@@ -94,13 +92,20 @@ export default {
         option.text.toLowerCase().includes(this.search.toLowerCase())
       );
     },
+    showText: function(){
+      // trường hợp đã chọn nhưng dữ liệu data chưa load xong
+     if(this.data.length-1<this.select)
+     return "";
+      return this.data[this.select].text;
+    }
+
   },
-  mounted() {
-    this.showText = Vue.util.extend(this.data[this.select].text);
-    //   this.dataSearch = Vue.util.extend({}, this.optionCountry);
-    //   console.log(this.optionCountry);
-    //     //this.dataSearch = JSON.parse(JSON.stringify());
-  },
+  // update() {
+  //   this.showText = Vue.util.extend(this.data[this.select].text);
+  //   //   this.dataSearch = Vue.util.extend({}, this.optionCountry);
+  //   //   console.log(this.optionCountry);
+  //   //     //this.dataSearch = JSON.parse(JSON.stringify());
+  // }, 
 };
 </script>
 <style scoped>
@@ -211,7 +216,7 @@ li:hover {
 
 .component-fade-enter-active,
 .component-fade-leave-active {
-   transition: all 0.3s ease-in-out;
+   transition: all 0.2s ease-in-out;
   max-height: 180px;
 }
 .component-fade-enter, .component-fade-leave-to

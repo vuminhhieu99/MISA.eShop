@@ -59,52 +59,34 @@
               />
             </div>
             <div class="form-group h-container-center">
-              <p class="label-text text-one-line">Quốc gian</p>
-              <select
+              <p class="label-text text-one-line">Quốc gia</p>
+               <Combobox
+                v-bind:select="selectedCountry"
+                v-bind:data="optionCountry"
+                @input="selectedCountry = $event"
                 class="form-control w-sm"
                 tabindex="5"
-                v-model="selectedCountry"
-              >
-                <option
-                  v-for="option in optionCountry"
-                  :key="option.value"
-                  v-bind:value="option.value"
-                >
-                  {{ option.text }}
-                </option>
-              </select>
+              />             
             </div>
             <div class="form-group h-container-center">
               <p class="label-text text-one-line">Tỉnh/Thành phố</p>
-              <select
+               <Combobox
+                v-bind:select="selectedCity"
+                v-bind:data="optionCity"
+                @input="selectedCity = $event"
                 class="form-control w-sm"
                 tabindex="6"
-                v-model="selectedCity"
-              >
-                <option
-                  v-for="option in optionCity"
-                  :key="option.value"
-                  v-bind:value="option.value"
-                >
-                  {{ option.text }}
-                </option>
-              </select>
+              />          
             </div>
             <div class="form-group h-container-center">
               <p class="label-text text-one-line">Phường/Xã</p>
-              <select
+               <Combobox
+                v-bind:select="shop.wardId"
+                v-bind:data="optionWard"
+                @input="wardId = $event"
                 class="form-control w-sm"
-                tabindex="7"
-                v-model="shop.wardId"
-              >
-                <option
-                  v-for="option in optionWard"
-                  :key="option.value"
-                  v-bind:value="option.value"
-                >
-                  {{ option.text }}
-                </option>
-              </select>
+                tabindex="8"
+              />
             </div>
           </div>
           <div class="col-6 h-container-column p-column">
@@ -119,19 +101,13 @@
             <div class="h-container-column h-container-end h-100">
               <div class="form-group h-container-center">
                 <p class="label-text text-one-line">Quận/Huyện</p>
-                <select
-                  class="form-control w-sm"
-                  tabindex="9"
-                  v-model="selectedDistrict"
-                >
-                  <option
-                    v-for="option in optionDistrict"
-                    :key="option.value"
-                    v-bind:value="option.value"
-                  >
-                    {{ option.text }}
-                  </option>
-                </select>
+                <Combobox
+                v-bind:select="selectedDistrict"
+                v-bind:data="optionDistrict"
+                @input="selectedDistrict = $event"
+                class="form-control w-sm"
+                tabindex="7"
+              />
               </div>
               <div class="form-group h-container-center">
                 <p class="label-text text-one-line">Đường phố</p>
@@ -179,6 +155,7 @@ import * as axios from "axios";
 import * as vldShop from "./ValidateShop.js";
 import BaseModalForm from "../BaseModalForm.vue";
 import ModalValidata from "../ModalValidata.vue";
+import Combobox from "../../combobox/Combobox.vue";
 // //coordinates follow screen  ( pixel )
 // const COORDINATES = {
 //   shopCode: { left: "742px", top: "-6px" },
@@ -242,6 +219,7 @@ export default {
   components: {
     BaseModalForm,
     ModalValidata,
+    Combobox
   },
   methods: {
     //lấy danh sách quốc gia

@@ -1,7 +1,16 @@
 <template>
   <aside class="content">
        <Combobox v-bind:select="selectedCountry" v-bind:data="optionCountry" @input="selectedCountry = $event" v-bind:style="{'height': '35px'}"/>
-       <div>{{selectedCountry}}</div>    
+           
+       <div class="grid">
+         <div >1</div>
+         <div>2</div>
+         <div>3</div>
+         <div>4</div>
+         <div>5</div>
+         <div>6</div>
+         <div>7</div>
+       </div>
   </aside>
 </template>
 
@@ -45,3 +54,36 @@ export default {
 
 }
 </script>
+<style scoped>
+div{
+  /* height: 40px;
+  width: 200px; */
+  text-align: center;
+
+  
+}
+.grid div:nth-child(1){
+  background-color: tomato;
+}
+.grid div:nth-child(2){
+  background-color: teal;
+}
+.grid div:nth-child(3){
+  background-color: violet;
+}
+.grid div:nth-child(4){
+  background-color: yellow;
+  grid-column: auto/2 span;
+}
+.grid div:nth-child(5){
+  background-color: slateblue;
+  grid-row: auto/2 span;
+}
+.grid div:nth-child(6){
+  background-color: olivedrab;
+}
+.grid div:nth-child(7){
+  background-color: olivedrab;
+}
+
+</style>

@@ -58,13 +58,14 @@ namespace MisaEShop.API
 
             // cấu hình Dependency Injection 
             services.AddScoped(typeof(IBaseData<>), typeof(DbConnection_V2<>));
-            services.AddScoped(typeof(IBaseBussiness<>), typeof(BaseBussiness<>));
+            services.AddScoped(typeof(IBaseBussiness<>), typeof(BaseBussiness_V2<>));
 
             services.AddScoped<IShopData, ShopData>();
             services.AddScoped<IShopBussiness, ShopBussiness>();
             services.AddScoped<ICityBussiness, CityBussiness>();
             services.AddScoped<IDistrictBussiness, DistrictBussiness>();
-            services.AddScoped<IWardBussiness, WardBussiness>();            
+            services.AddScoped<IWardBussiness, WardBussiness>();
+            services.AddScoped<IUserBussiness, UserBussiness>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
